@@ -18,4 +18,8 @@ public class Branch {
             throw new MergeException(this, pullRequest);
         }
     }
+
+    public List<Commit> getCommits() {
+        return commits;
+    }
 }

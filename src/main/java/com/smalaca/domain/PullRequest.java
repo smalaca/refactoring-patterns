@@ -5,7 +5,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class PullRequest {
+abstract public class PullRequest {
     private static final String DEVELOPER = "developer";
     private static final String TECH_LEAD = "technical leader";
 

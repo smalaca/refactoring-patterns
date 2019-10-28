@@ -17,7 +17,7 @@
     * Encapsulate Downcast - ```CodeBaseDeltasRepository```
     
 * Moving Features between Objects
-    * Move Method i Move Field - 
+    * Move Method i Move Field - more usage in different class (TO DRAW)
     * Extract Class - ```User.address```
     * Inline Class - ```User.email```
     * Hide Delegate - ```Commit.getAuthor```
@@ -26,19 +26,16 @@
     * Introduce Local Extension - ```NotificationSender::utility into extension```
     
 * Organizing Data
-    * Replace Array with Object - ``````
-    * Data Value with Object - ``````
-    * Magic Number with Symbolic Constant - ``````
-    * Record with Data Class - ``````
-    * Subclass with Fields - ``````
-    * Type Code with Class - ``````
-    * Type Code with Strategy/State - ``````
-    * Type Code with Subclasses - ``````
-    * Encapsulate Collection, Encapsulate Field - ``````
-    * Change Bidirectional Association to Unidirectional - ``````
-    * Change Unidirectional Association to Bidirectional - ``````
-    * Change Reference to Value - ``````
-    * Change Value to Reference - ``````
+    * Replace Array with Object - ```PullRequest.commits, ChangeScope.commits, Branch.commits```
+    * Data Value with Object - ```Author, Reviewer, User -> login```
+    * Magic Number with Symbolic Constant - ```RefactoringProposition.isRequired```
+    * Record with Data Class - ```Commit.message```
+    * Subclass with Fields - ```ChangeRequest, Fix, Improvements as type```
+    * Type Code with Class - ```PullRequest, reviewers type```
+    * Type Code with Strategy/State - part of behavior depends on type (TO DRAW, NEXT REPO) 
+    * Type Code with Subclasses - most of behavior depends on type (TO DRAW, NEXT REPO)
+    * Encapsulate Collection, Encapsulate Field - ```Commit.branches```
+    * Change Bidirectional Association to Unidirectional - ```Commit.branches```
     
 * Simplifying Conditional Expressions
     * Decompose Conditional Expressions - ``````
