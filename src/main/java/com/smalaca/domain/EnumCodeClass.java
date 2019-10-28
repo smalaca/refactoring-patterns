@@ -9,10 +9,10 @@ class EnumCodeClass extends CodeClass {
 
     @Override
     public int linesOfCode() {
-        int amountOfAttributes = attributes.size();
-        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+//        int amountOfAttributes = attributes.size();
+//        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
 
-        return amountOfAttributes + methodsLength;
+        return linesOfCodeForClassWithoutParent();
     }
 
 }

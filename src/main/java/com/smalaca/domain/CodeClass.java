@@ -13,7 +13,15 @@ public abstract class CodeClass {
 
     public abstract int linesOfCode();
 
-    public boolean hasMoreLinesThan(int linesOfCode) {
+
+    protected int linesOfCodeForClassWithoutParent() {
+        int amountOfAttributes = attributes.size();
+        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+
+        return amountOfAttributes + methodsLength;
+    }
+
+    public boolean hasMoreLinesThan(Integer linesOfCode) {
         linesOfCode -= linesOfCode();
 
         return linesOfCode <= 0;

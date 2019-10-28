@@ -23,12 +23,12 @@ class ClazzCodeClass extends CodeClass {
         }
     }
 
-    private int linesOfCodeForClassWithoutParent() {
-        int amountOfAttributes = attributes.size();
-        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
-
-        return amountOfAttributes + methodsLength;
-    }
+//    private int linesOfCodeForClassWithoutParent() {
+//        int amountOfAttributes = attributes.size();
+//        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+//
+//        return amountOfAttributes + methodsLength;
+//    }
 
     private int linesOfCodeForClassWithParent() {
         return linesOfCodeForClassWithoutParent() + parent.linesOfCode();

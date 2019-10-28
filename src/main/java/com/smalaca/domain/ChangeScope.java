@@ -41,12 +41,14 @@ public class ChangeScope {
     }
 
     public long firstCommitEpochDay() {
-        Optional<Commit> latestCommit = commits.stream().max(Comparator.comparing(Commit::creationEpochDay));
-
-        if (latestCommit.isPresent()) {
-            return latestCommit.get().creationEpochDay();
+        if (latestCommit().isPresent()) {
+            return latestCommit().get().creationEpochDay();
         }
 
         throw CommitNotPresentException.first(id);
+    }
+
+    private Optional<Commit> latestCommit() {
+        return commits.stream().max(Comparator.comparing(Commit::creationEpochDay));
     }
 }
