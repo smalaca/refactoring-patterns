@@ -6,16 +6,17 @@
     * Inline Method - ```RefactoringProposition.moreThanHundredAffectedLinesOfCode```
     * Extract Method - ```RefactoringProposition.isRequired```
     * Remove Assignments to Parameters - ```CodeClass.hasMoreLinesThan```
+    
 * Simplify Methods Calls
     * Replace Constructor with Factory Method - ```User.constructor```
     * ErrorCode with Exception - ```PullRequestService.merge```
     * Exception with Test - ```PullRequestApplicationService.merge```
     * Parameter with Explicit Methods - ```Coverage.is```
     * Parameter with Method - ```PullRequest.isPossibleToMergeTo```
-    * Introduce Parameter Object - ``````
+    * Introduce Parameter Object - ```History```
     * Encapsulate Downcast - ``````
+    
 * Moving Features between Objects
-
     * Move Method i Move Field - ``````
     * Extract Class - ``````
     * Inline Class - ``````
@@ -23,6 +24,7 @@
     * Remove Middle Man - ``````
     * Introduce Foreign Method - ``````
     * Introduce Local Extension - ``````
+    
 * Organizing Data
     * Replace Array with Object - ``````
     * Data Value with Object - ``````
@@ -37,6 +39,7 @@
     * Change Unidirectional Association to Bidirectional - ``````
     * Change Reference to Value - ``````
     * Change Value to Reference - ``````
+    
 * Simplifying Conditional Expressions
     * Decompose Conditional Expressions - ``````
     * Consolidate Conditional Expressions - `````` 
@@ -45,6 +48,7 @@
     * Replace Nested Conditional with Guard Clauses - ``````
     * Replace Conditional with Polymorphism - ``````
     * Null Object - ``````
+    
 * Dealing with Generalization
     * Pull Up Constructor Body, Field, Method - ``````
     * Push Down Field, Method - ``````
