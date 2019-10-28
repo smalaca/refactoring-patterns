@@ -1,6 +1,7 @@
 package com.smalaca.domain;
 
 public class RefactoringProposition {
+    private static final int DAYS_IN_FOUR_WEEKS_PERIOD = 28;
     private final ChangeScope scope;
     private final CodeBase codeBase;
 
@@ -13,13 +14,14 @@ public class RefactoringProposition {
         return moreThanHundredAffectedLinesOfCode() &&
                 averageNumberOfCommits() > 1 &&
                 scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - 84);
-     }
+    }
 
     private boolean moreThanHundredAffectedLinesOfCode() {
         return scope.affectedLinesOfCode() > 100;
     }
 
     private long averageNumberOfCommits() {
-        return scope.numberOfCommits() / (scope.latestChangeEpochDay() - scope.firstChangeEpochDay() / 28);
+        long averageNumberOfChangesPerPeriod = (scope.latestChangeEpochDay() - scope.firstChangeEpochDay()) / DAYS_IN_FOUR_WEEKS_PERIOD;
+        return scope.numberOfCommits() / averageNumberOfChangesPerPeriod;
     }
 }
