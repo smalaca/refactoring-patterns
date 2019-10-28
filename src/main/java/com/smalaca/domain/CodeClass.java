@@ -23,29 +23,37 @@ public class CodeClass {
 
     public int linesOfCode() {
         if (CodeClassType.INTERFACE.equals(type)) {
-            return methods.size() + 1;
+            return methods.size();
         } else {
             if (CodeClassType.ENUM.equals(type)) {
-                int amountOfAttributes = attributes.size();
-                int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
-
-                return amountOfAttributes + methodsLength;
+                return linesOfCodeForEnum();
             } else {
 
                 if (parent != null) {
-                    int linesOfCode = parent.linesOfCode();
-                    int amountOfAttributes = attributes.size();
-                    int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
-
-                    return linesOfCode + amountOfAttributes + methodsLength;
+                    return linesOfCodeForClassWithParent();
                 } else {
-                    int amountOfAttributes = attributes.size();
-                    int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
-
-                    return amountOfAttributes + methodsLength;
+                    return linesOfCodeForClassWithoutParent();
                 }
             }
         }
+    }
+
+    private int linesOfCodeForClassWithoutParent() {
+        int amountOfAttributes = attributes.size();
+        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+
+        return amountOfAttributes + methodsLength;
+    }
+
+    private int linesOfCodeForClassWithParent() {
+        return linesOfCodeForClassWithoutParent() + parent.linesOfCode();
+    }
+
+    private int linesOfCodeForEnum() {
+        int amountOfAttributes = attributes.size();
+        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+
+        return amountOfAttributes + methodsLength;
     }
 
     public boolean hasMoreLinesThan(int linesOfCode) {
