@@ -7,11 +7,11 @@
     * Extract Method - ```RefactoringProposition.isRequired```
     * Remove Assignments to Parameters - ```CodeClass.hasMoreLinesThan```
 * Simplify Methods Calls
-    * Replace Constructor with Factory Method - ``````
-    * ErrorCode with Exception - ``````
-    * Exception with Test - ``````
-    * Parameter with Explicit Methods - ``````
-    * Parameter with Method - ``````
+    * Replace Constructor with Factory Method - ```User.constructor```
+    * ErrorCode with Exception - ```PullRequestService.merge```
+    * Exception with Test - ```PullRequestApplicationService.merge```
+    * Parameter with Explicit Methods - ```Coverage.is```
+    * Parameter with Method - ```PullRequest.isPossibleToMergeTo```
     * Introduce Parameter Object - ``````
     * Encapsulate Downcast - ``````
 * Moving Features between Objects
