@@ -34,8 +34,7 @@
     * Type Code with Strategy/State - part of behavior depends on type (TO DRAW, NEXT REPO) 
     * Type Code with Subclasses - most of behavior depends on type (TO DRAW, NEXT REPO)
     * Encapsulate Collection, Encapsulate Field - ```Commit.branches```
-    * Change Bidirectional Association to Unidirectional - ```Commit.branches```
-    * Change Bidirectional Unidirectional to Association
+    * Change Bidirectional Association to Unidirectional/Change Bidirectional Unidirectional to Association - ```Commit.branches```
     
 * Simplifying Conditional Expressions
     * Decompose Conditional Expressions - ```RefactoringProposition.isRequired```
@@ -46,9 +45,8 @@
     * Null Object - ```CodeClass.parent```
     
 * Dealing with Generalization
-    * Pull Up Constructor Body, Field, Method - ``````
-    * Push Down Field, Method - ``````
-    * Collapse Hierarchy - ``````
-    * Extract Interface, Subclass, Superclass - ``````
-    * Replace Delegation with Intheritance - ``````
-    * Replace Inheritance with Delegation - ``````
+    * Pull Up Constructor Body, Field, Method - ```codestructure package```
+    * Push Down Field, Method - ```CodeClass.parent```
+    * Collapse Hierarchy - ```NotificationSender and MailNotificationSender```
+    * Extract Interface, Subclass, Superclass - ```codestructure package CodeClass.linesOfCode```
+    * Replace Inheritance with Delegation/Replace Delegation with Intheritance - ```codestructure package CodeClass.linesOfCode```
