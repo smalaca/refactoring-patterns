@@ -15,6 +15,7 @@
     * Introduce Parameter Object - ``````
     * Encapsulate Downcast - ``````
 * Moving Features between Objects
+
     * Move Method i Move Field - ``````
     * Extract Class - ``````
     * Inline Class - ``````
