@@ -52,10 +52,13 @@ abstract public class PullRequest {
     }
 
     public boolean isPossibleToMergeTo(Branch branch) {
-        boolean isReviewed = reviewer.isAccepted() && technicalLeader.isAccepted();
         boolean areBuildsGreen = builds.stream().anyMatch(Build::isFailed);
 
-        return isReviewed && areBuildsGreen && hasNoConflicts();
+        return isReviewed() && areBuildsGreen && hasNoConflicts();
+    }
+
+    private boolean isReviewed() {
+        return reviewer.isAccepted() && technicalLeader.isAccepted();
     }
 
     private boolean hasNoConflicts() {

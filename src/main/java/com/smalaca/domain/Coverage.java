@@ -6,13 +6,25 @@ public class Coverage {
     public boolean is(String conditionToCheck, long value) {
         switch (conditionToCheck) {
             case "higher":
-                return coverage > value;
+                return isHigher(value);
             case "equal":
-                return coverage == value;
+                return isEqual(value);
             case "lower":
-                return coverage < value;
+                return isLower(value);
         }
 
         throw new IllegalArgumentException("Unsupported condition given: " + conditionToCheck);
+    }
+
+    private boolean isLower(long value) {
+        return coverage < value;
+    }
+
+    private boolean isEqual(long value) {
+        return coverage == value;
+    }
+
+    private boolean isHigher(long value) {
+        return coverage > value;
     }
 }
