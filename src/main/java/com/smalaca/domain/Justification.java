@@ -1,11 +1,11 @@
 package com.smalaca.domain;
 
-public class RefactoringJustification {
+public class Justification {
     private final String name;
     private String description;
     private TaskLink link;
 
-    public RefactoringJustification(String name) {
+    public Justification(String name) {
         this.name = name;
     }
 
