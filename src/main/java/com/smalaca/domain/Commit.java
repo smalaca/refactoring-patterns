@@ -16,4 +16,8 @@ public class Commit {
     public long creationEpochDay() {
         return creationDate.toEpochDay();
     }
+
+    public Author getAuthor() {
+        return author;
+    }
 }

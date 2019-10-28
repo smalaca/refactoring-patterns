@@ -14,16 +14,16 @@
     * Parameter with Explicit Methods - ```Coverage.is```
     * Parameter with Method - ```PullRequest.isPossibleToMergeTo```
     * Introduce Parameter Object - ```History```
-    * Encapsulate Downcast - ``````
+    * Encapsulate Downcast - ```CodeBaseDeltasRepository```
     
 * Moving Features between Objects
-    * Move Method i Move Field - ``````
-    * Extract Class - ``````
-    * Inline Class - ``````
-    * Hide Delegate - ``````
-    * Remove Middle Man - ``````
-    * Introduce Foreign Method - ``````
-    * Introduce Local Extension - ``````
+    * Move Method i Move Field - 
+    * Extract Class - ```User.address```
+    * Inline Class - ```User.email```
+    * Hide Delegate - ```Commit.getAuthor```
+    * Remove Middle Man - ```User & address getters```
+    * Introduce Foreign Method - ```NotificationSender.withDelay```
+    * Introduce Local Extension - ```NotificationSender::utility into extension```
     
 * Organizing Data
     * Replace Array with Object - ``````

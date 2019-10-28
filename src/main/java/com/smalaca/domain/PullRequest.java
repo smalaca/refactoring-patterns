@@ -1,6 +1,9 @@
 package com.smalaca.domain;
 
+import java.time.LocalDate;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public class PullRequest {
     private static final String DEVELOPER = "developer";
@@ -9,6 +12,8 @@ public class PullRequest {
     private final Author author;
     private final String name;
     private final List<Commit> commits;
+    private final LocalDate creationDate;
+    private LocalDate mergeDate;
     private List<Build> builds;
     private Reviewer reviewer;
     private Reviewer technicalLeader;
@@ -17,6 +22,7 @@ public class PullRequest {
         this.author = author;
         this.name = name;
         this.commits = commits;
+        creationDate = LocalDate.now();
     }
 
     public void add(Commit commit) {
@@ -37,6 +43,14 @@ public class PullRequest {
         }
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
+    public List<Reviewer> getReviewers() {
+        return asList(reviewer, technicalLeader);
+    }
+
     public boolean isPossibleToMergeTo(Branch branch) {
         boolean isReviewed = reviewer.isAccepted() && technicalLeader.isAccepted();
         boolean areBuildsGreen = builds.stream().anyMatch(Build::isFailed);
@@ -47,5 +61,13 @@ public class PullRequest {
     private boolean hasNoConflicts() {
         // to implement
         return false;
+    }
+
+    public void setMergeDate(LocalDate mergeDate) {
+        this.mergeDate = mergeDate;
+    }
+
+    public LocalDate getMergeDate() {
+        return mergeDate;
     }
 }

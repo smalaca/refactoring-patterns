@@ -6,4 +6,8 @@ public class Author {
     public Author(String login) {
         this.login = login;
     }
+
+    public String getLogin() {
+        return login;
+    }
 }

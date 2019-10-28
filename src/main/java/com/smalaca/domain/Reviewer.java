@@ -16,4 +16,8 @@ public class Reviewer {
     public boolean isAccepted() {
         return ACCEPTED.equals(status);
     }
+
+    public String getLogin() {
+        return login;
+    }
 }
