@@ -22,4 +22,13 @@ public class Branch {
     public List<Commit> getCommits() {
         return commits;
     }
+
+    public boolean canBeRebasedWith(Branch from) {
+        // to implement
+        return false;
+    }
+
+    public void rebaseWith(Branch from) {
+        // to implement
+    }
 }

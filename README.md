@@ -2,7 +2,6 @@
     * Introduce Explaining Variable - ```RefactoringProposition.averageNumberOfCommits```
     * Split Temporary Variable - ```ChangeScope.affectedLinesOfCode```
     * Replace Template with Query - ```ChangeScope.latestChangeEpochDay```
-    * Inline Temp - ```CodeClass.linesOfCode```
     * Inline Method - ```RefactoringProposition.moreThanHundredAffectedLinesOfCode```
     * Extract Method - ```RefactoringProposition.isRequired```
     * Remove Assignments to Parameters - ```CodeClass.hasMoreLinesThan```
@@ -36,15 +35,15 @@
     * Type Code with Subclasses - most of behavior depends on type (TO DRAW, NEXT REPO)
     * Encapsulate Collection, Encapsulate Field - ```Commit.branches```
     * Change Bidirectional Association to Unidirectional - ```Commit.branches```
+    * Change Bidirectional Unidirectional to Association
     
 * Simplifying Conditional Expressions
-    * Decompose Conditional Expressions - ``````
-    * Consolidate Conditional Expressions - `````` 
-    * Consolidate Duplicate Conditional Expressions - ``````
-    * Remove Control Flag - ``````
-    * Replace Nested Conditional with Guard Clauses - ``````
-    * Replace Conditional with Polymorphism - ``````
-    * Null Object - ``````
+    * Decompose Conditional Expressions - ```RefactoringProposition.isRequired```
+    * Consolidate Conditional Expressions - ```IsRefactoringRequiredPredicate``` 
+    * Consolidate Duplicate Conditional Expressions - ```BranchApplicationService.rebase - notification```
+    * Replace Nested Conditional with Guard Clauses - ```CodeClass.linesOfCode```
+    * Replace Conditional with Polymorphism - ```CodeClass and CodeClassType into classes```
+    * Null Object - ```CodeClass.parent```
     
 * Dealing with Generalization
     * Pull Up Constructor Body, Field, Method - ``````

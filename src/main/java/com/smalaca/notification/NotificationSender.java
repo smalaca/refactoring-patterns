@@ -36,4 +36,8 @@ public class NotificationSender {
 
         return LocalDate.of(year, month, dayOfMonth);
     }
+
+    public void notify(String message, String receiver) {
+        // to implement
+    }
 }
