@@ -22,19 +22,17 @@ public class CodeClass {
     }
 
     public int linesOfCode() {
-        if (CodeClassType.INTERFACE.equals(type)) {
-            return methods.size();
-        } else {
-            if (CodeClassType.ENUM.equals(type)) {
+        switch(type){
+            case ENUM:
                 return linesOfCodeForEnum();
-            } else {
-
+            case INTERFACE:
+                return methods.size();
+            default:
                 if (parent != null) {
                     return linesOfCodeForClassWithParent();
                 } else {
                     return linesOfCodeForClassWithoutParent();
                 }
-            }
         }
     }
 
