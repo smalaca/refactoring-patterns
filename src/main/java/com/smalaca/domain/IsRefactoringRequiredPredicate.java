@@ -7,11 +7,11 @@ public class IsRefactoringRequiredPredicate {
             return false;
         }
 
-        if (scope.numberOfCommits() / (scope.latestChangeEpochDay() - scope.firstChangeEpochDay() / 28) < 2) {
+        if (scope.numberOfCommits() / (scope.latestCommitEpochDay() - scope.firstCommitEpochDay() / 28) < 2) {
             return false;
         }
 
-        if (scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - 84)) {
+        if (scope.latestCommitEpochDay() > (codeBase.latestChangeEpochDay() - 84)) {
             return true;
         } else {
             return false;

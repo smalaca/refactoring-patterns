@@ -13,7 +13,7 @@ public class RefactoringProposition {
     public boolean isRequired() {
         return moreThanHundredAffectedLinesOfCode() &&
                 averageNumberOfCommits() > 1 &&
-                scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - 84);
+                scope.latestCommitEpochDay() > (codeBase.latestChangeEpochDay() - 84);
     }
 
     private boolean moreThanHundredAffectedLinesOfCode() {
@@ -21,7 +21,7 @@ public class RefactoringProposition {
     }
 
     private long averageNumberOfCommits() {
-        long averageNumberOfChangesPerPeriod = (scope.latestChangeEpochDay() - scope.firstChangeEpochDay()) / DAYS_IN_FOUR_WEEKS_PERIOD;
+        long averageNumberOfChangesPerPeriod = (scope.latestCommitEpochDay() - scope.firstCommitEpochDay()) / DAYS_IN_FOUR_WEEKS_PERIOD;
         return scope.numberOfCommits() / averageNumberOfChangesPerPeriod;
     }
 }
