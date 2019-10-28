@@ -14,6 +14,10 @@ public class ClassesClient {
 
     public void foo() {
         CodeClass codeClass = codeClassFactory.create(new ArrayList<ClassAttribute>(), new ArrayList<ClassMethod>(), CodeClassType.ENUM);
+
+        User user1 = User.admin("login");
+        User user2 = User.readOnly("login");
+        User user3 = User.developer("login");
     }
 
     public void bar() {

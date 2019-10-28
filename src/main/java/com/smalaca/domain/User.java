@@ -14,6 +14,18 @@ public class User {
         this.role = role;
     }
 
+    public static User admin(String login) {
+        return new User(login, "admin");
+    }
+
+    public static User readOnly(String login) {
+        return new User(login, "readOnly");
+    }
+
+    public static User developer(String login) {
+        return new User(login, "developer");
+    }
+
     public void changeAddress(String street, String postalCode, String city, String country) {
         this.street = street;
         this.postalCode = postalCode;
