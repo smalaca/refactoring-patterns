@@ -21,8 +21,8 @@
     * Inline Class - ```User.email```
     * Hide Delegate - ```Commit.getAuthor```
     * Remove Middle Man - ```User & address getters```
-    * Introduce Foreign Method - ```NotificationSender.withDelay```
-    * Introduce Local Extension - ```NotificationSender::utility into extension```
+    * Introduce Foreign Method - ```MailNotificationSender.send.delayed```
+    * Introduce Local Extension - ```MailNotificationSender.send.delayed into extension```
     
 * Organizing Data
     * Replace Array with Object - ```PullRequest.commits, ChangeScope.commits, Branch.commits```

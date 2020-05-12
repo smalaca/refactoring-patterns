@@ -20,21 +20,18 @@ public class MailNotificationSender implements NotificationSender{
 
     private void send(PullRequest pullRequest, String login) {
         NotificationDelta delta = repository.findFor(login);
-        LocalDate delayed = withDelay(pullRequest.getMergeDate(), delta);
+        LocalDate mergeDate = pullRequest.getMergeDate();
+        int dayOfMonth = mergeDate.getDayOfMonth() - delta.getDaysDelay();
+        Month month = mergeDate.getMonth();
+        int year = mergeDate.getYear();
+
+        LocalDate delayed = LocalDate.of(year, month, dayOfMonth);
 
         send(pullRequest, login, delayed);
     }
 
     private void send(PullRequest pullRequest, String login, LocalDate delayed) {
         // to implement
-    }
-
-    private LocalDate withDelay(LocalDate mergeDate, NotificationDelta delta) {
-        int dayOfMonth = mergeDate.getDayOfMonth() - delta.getDaysDelay();
-        Month month = mergeDate.getMonth();
-        int year = mergeDate.getYear();
-
-        return LocalDate.of(year, month, dayOfMonth);
     }
 
     public void notify(String message, String receiver) {
