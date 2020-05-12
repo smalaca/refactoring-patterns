@@ -6,4 +6,8 @@ public class Improvement extends PullRequest {
     public Improvement(Author author, String name, List<Commit> commits) {
         super(author, name, commits);
     }
+
+    public void alterWith(CommitAmend amend) {
+
+    }
 }

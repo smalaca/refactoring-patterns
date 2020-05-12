@@ -6,4 +6,12 @@ public class ChangeRequest extends PullRequest {
     public ChangeRequest(Author author, String name, List<Commit> commits) {
         super(author, name, commits);
     }
+
+    public boolean isClosed() {
+        return false;
+    }
+
+    public void amend(CommitAmend amend) {
+
+    }
 }

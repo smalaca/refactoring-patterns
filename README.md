@@ -13,7 +13,7 @@
     * Parameter with Explicit Methods - ```Coverage.is```
     * Parameter with Method - ```PullRequest.isPossibleToMergeTo```
     * Introduce Parameter Object - ```History```
-    * Encapsulate Downcast - ```CodeBaseDeltasRepository```
+    * Encapsulate Downcast - ```PullRequestsRepository```
     
 * Moving Features between Objects
     * Move Method i Move Field - more usage in different class (TO DRAW)
