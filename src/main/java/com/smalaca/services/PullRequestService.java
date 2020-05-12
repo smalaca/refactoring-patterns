@@ -1,4 +1,4 @@
-package com.smalaca.rest;
+package com.smalaca.services;
 
 import com.smalaca.domain.*;
 
