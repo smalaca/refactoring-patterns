@@ -3,7 +3,7 @@ package com.smalaca.notification;
 import com.smalaca.domain.PullRequest;
 
 import java.time.LocalDate;
-import java.time.Month;
+import java.util.Date;
 
 public class MailNotificationSender implements NotificationSender{
     private final NotificationDeltaRepository repository;
@@ -20,9 +20,9 @@ public class MailNotificationSender implements NotificationSender{
 
     private void send(PullRequest pullRequest, String login) {
         NotificationDelta delta = repository.findFor(login);
-        LocalDate mergeDate = pullRequest.getMergeDate();
-        int dayOfMonth = mergeDate.getDayOfMonth() - delta.getDaysDelay();
-        Month month = mergeDate.getMonth();
+        Date mergeDate = pullRequest.getMergeDate();
+        int dayOfMonth = mergeDate.getDay() + delta.getDaysDelay();
+        int month = mergeDate.getMonth();
         int year = mergeDate.getYear();
 
         LocalDate delayed = LocalDate.of(year, month, dayOfMonth);

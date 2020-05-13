@@ -1,6 +1,7 @@
 package com.smalaca.domain;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -13,7 +14,7 @@ abstract public class PullRequest {
     private final String name;
     private final List<Commit> commits;
     private final LocalDate creationDate;
-    private LocalDate mergeDate;
+    private Date mergeDate;
     private List<Build> builds;
     private Reviewer reviewer;
     private Reviewer technicalLeader;
@@ -63,11 +64,11 @@ abstract public class PullRequest {
         return false;
     }
 
-    public void setMergeDate(LocalDate mergeDate) {
+    public void setMergeDate(Date mergeDate) {
         this.mergeDate = mergeDate;
     }
 
-    public LocalDate getMergeDate() {
+    public Date getMergeDate() {
         return mergeDate;
     }
 }
