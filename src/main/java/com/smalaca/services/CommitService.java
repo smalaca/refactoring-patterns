@@ -3,6 +3,7 @@ package com.smalaca.services;
 import com.smalaca.domain.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class CommitService {
     private final History history;
@@ -14,7 +15,8 @@ public class CommitService {
     }
 
     public void create(Author author, CodeBaseDelta codeBaseDelta, LocalDate creationDate, String taskNumber, String description) {
-        Commit commit = new Commit(creationDate, author, codeBaseDelta, new String[]{taskNumber, description});
+        String hashCode = UUID.randomUUID().toString();
+        Commit commit = new Commit(hashCode, creationDate, author, codeBaseDelta, new String[]{taskNumber, description});
 
         history.store(commit.getAuthor().getLogin(), commit);
         commitRepository.save(commit);

@@ -7,11 +7,13 @@ public class ChangeRequest extends PullRequest {
         super(author, name, commits);
     }
 
-    public boolean isClosed() {
-        return false;
-    }
-
     public void amend(CommitAmend amend) {
-
+        for (Commit commit : getCommits()) {
+            if (commit.hasSameHashCodeAs(amend)) {
+                CodeBaseDelta codeBaseDelta = commit.getCodeBaseDelta();
+                CodeBaseDelta newCodeBaseDelta = amend.getCodeBaseDelta();
+                codeBaseDelta.change(newCodeBaseDelta);
+            }
+        }
     }
 }

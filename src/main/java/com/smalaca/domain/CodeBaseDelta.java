@@ -9,4 +9,9 @@ public class CodeBaseDelta {
     public void add(CodeChange change) {
         changes.add(change);
     }
+
+    void change(CodeBaseDelta codeBaseDelta) {
+        changes.clear();
+        changes.addAll(codeBaseDelta.changes);
+    }
 }

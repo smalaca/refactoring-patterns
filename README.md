@@ -29,7 +29,7 @@
     * Data Value with Object - ```Author, Reviewer, User -> login```
     * Magic Number with Symbolic Constant - ```RefactoringProposition.isRequired```
     * Record with Data Class - ```Commit.message```
-    * Subclass with Fields - ```ChangeRequest, Fix, Improvements as type```
+    * Subclass with Fields - ```ChangeRequest, Fix, Improvement as type```
     * Type Code with Class - ```PullRequest, reviewers type```
     * Type Code with Strategy/State - part of behavior depends on type (TO DRAW, NEXT REPO) 
     * Type Code with Subclasses - most of behavior depends on type (TO DRAW, NEXT REPO)

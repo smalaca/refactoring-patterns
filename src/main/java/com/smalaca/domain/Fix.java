@@ -7,11 +7,8 @@ public class Fix extends PullRequest {
         super(author, name, commits);
     }
 
-    public boolean canByModified() {
-        return false;
-    }
-
     public void modify(CommitAmend amend) {
-
+        Commit found = getCommits().stream().filter(commit -> commit.hasSameHashCodeAs(amend)).findFirst().get();
+        found.getCodeBaseDelta().change(amend.getCodeBaseDelta());
     }
 }

@@ -9,25 +9,24 @@ public class PullRequestService {
         this.pullRequestsRepository = pullRequestsRepository;
     }
 
-    public void modifyFix(String id, CommitAmend amend) {
+    public int modifyFix(String id, CommitAmend amend) {
         Fix fix = (Fix) pullRequestsRepository.findFix(id);
 
-        if (fix.canByModified()) {
-            fix.modify(amend);
-        }
+        fix.modify(amend);
+
+        return 1;
     }
 
-    public void modifyImprovement(String id, CommitAmend amend) {
+    public int modifyImprovement(String id, CommitAmend amend) {
         Improvement improvement = (Improvement) pullRequestsRepository.findImprovement(id);
-
         improvement.alterWith(amend);
+        return 1;
     }
 
-    public void modifyChangeRequest(String id, CommitAmend amend) {
+    public int modifyChangeRequest(String id, CommitAmend amend) {
         ChangeRequest changeRequest = (ChangeRequest) pullRequestsRepository.findChangeRequest(id);
 
-        if (changeRequest.isClosed()) {
-            changeRequest.amend(amend);
-        }
+        changeRequest.amend(amend);
+        return 1;
     }
 }

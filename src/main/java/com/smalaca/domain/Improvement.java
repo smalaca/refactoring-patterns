@@ -8,6 +8,6 @@ public class Improvement extends PullRequest {
     }
 
     public void alterWith(CommitAmend amend) {
-
+        getCommits().stream().filter(commit -> commit.hasSameHashCodeAs(amend)).findFirst().get().getCodeBaseDelta().change(amend.getCodeBaseDelta());
     }
 }
