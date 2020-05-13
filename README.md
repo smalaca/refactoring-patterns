@@ -45,8 +45,8 @@
     * Null Object - ```CodeClass.parent```
     
 * Dealing with Generalization
-    * Pull Up Constructor Body, Field, Method - ```codestructure package```
+    * Pull Up Constructor Body, Field, Method - ```codestructure.ClassFile, EnumFile, InterfaceFile```
     * Push Down Field, Method - ```CodeClass.parent```
     * Collapse Hierarchy - ```NotificationSender and MailNotificationSender```
-    * Extract Interface, Subclass, Superclass - ```codestructure package CodeClass.linesOfCode```
-    * Replace Inheritance with Delegation/Replace Delegation with Intheritance - ```codestructure package CodeClass.linesOfCode```
+    * Extract Interface, Subclass, Superclass - ```CodeClass.linesOfCode```
+    * Replace Inheritance with Delegation/Replace Delegation with Intheritance - ```CodeClass.linesOfCode```
