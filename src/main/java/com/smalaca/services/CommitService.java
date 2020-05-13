@@ -1,8 +1,8 @@
 package com.smalaca.services;
 
-import com.smalaca.domain.Commit;
-import com.smalaca.domain.CommitRepository;
-import com.smalaca.domain.History;
+import com.smalaca.domain.*;
+
+import java.time.LocalDate;
 
 public class CommitService {
     private final History history;
@@ -13,7 +13,9 @@ public class CommitService {
         this.commitRepository = commitRepository;
     }
 
-    public void save(Commit commit) {
+    public void create(Author author, CodeBaseDelta codeBaseDelta, LocalDate creationDate, String taskNumber, String description) {
+        Commit commit = new Commit(creationDate, author, codeBaseDelta, new String[]{taskNumber, description});
+
         history.store(commit.getAuthor().getLogin(), commit);
         commitRepository.save(commit);
     }
