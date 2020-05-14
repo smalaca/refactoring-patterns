@@ -12,21 +12,21 @@ class UserService {
     }
 
     public User createAdmin(String login) {
-        User user = new User(login, "admin");
+        User user = User.admin(login);
         repository.save(user);
 
         return user;
     }
 
     public User createContributor(String login) {
-        User user = new User(login, "contributor");
+        User user = User.contributor(login);
         repository.save(user);
 
         return user;
     }
 
     public User createWatcher(String login) {
-        User user = new User(login, "watcher");
+        User user = User.watcher(login);
         repository.save(user);
 
         return user;
