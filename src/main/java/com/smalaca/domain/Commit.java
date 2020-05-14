@@ -43,4 +43,8 @@ public class Commit {
     CodeBaseDelta getCodeBaseDelta() {
         return codeBaseDelta;
     }
+
+    public String getAuthorLogin() {
+        return author.getLogin();
+    }
 }
