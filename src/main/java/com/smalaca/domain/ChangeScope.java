@@ -29,13 +29,23 @@ public class ChangeScope {
     }
 
     public long latestChangeEpochDay() {
-        Optional<Commit> latestCommit = commits.stream().min(Comparator.comparing(Commit::creationEpochDay));
-
-        if (latestCommit.isPresent()) {
-            return latestCommit.get().creationEpochDay();
+        if (latestCommitExists()) {
+            return creationEpochDayOfLatestCommit();
         }
 
         return -1;
+    }
+
+    private long creationEpochDayOfLatestCommit() {
+        return latestCommit().get().creationEpochDay();
+    }
+
+    private boolean latestCommitExists() {
+        return latestCommit().isPresent();
+    }
+
+    private Optional<Commit> latestCommit() {
+        return commits.stream().min(Comparator.comparing(Commit::creationEpochDay));
     }
 
     public long firstChangeEpochDay() {
