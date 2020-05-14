@@ -49,9 +49,9 @@ public class CodeClass {
     }
 
     public boolean hasMoreLinesThan(int linesOfCode) {
-        linesOfCode -= linesOfCode();
+        int difference = linesOfCode - linesOfCode();
 
-        if (linesOfCode > 0) {
+        if (difference > 0) {
             return false;
         } else {
             return true;
