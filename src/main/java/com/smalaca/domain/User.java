@@ -3,11 +3,8 @@ package com.smalaca.domain;
 public class User {
     private final String login;
     private final String role;
-    private String street;
-    private String postalCode;
-    private String city;
-    private String country;
     private EMail eMail;
+    private Address address;
 
     private User(String login, String role) {
         this.login = login;
@@ -27,25 +24,22 @@ public class User {
     }
 
     public void changeAddress(String street, String postalCode, String city, String country) {
-        this.street = street;
-        this.postalCode = postalCode;
-        this.city = city;
-        this.country = country;
+        this.address = new Address(street, postalCode, city, country);
     }
 
     public String getStreet() {
-        return street;
+        return address.getStreet();
     }
 
     public String getPostalCode() {
-        return postalCode;
+        return address.getPostalCode();
     }
 
     public String getCity() {
-        return city;
+        return address.getCity();
     }
 
     public String getCountry() {
-        return country;
+        return address.getCountry();
     }
 }
