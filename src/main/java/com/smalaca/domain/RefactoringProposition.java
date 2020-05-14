@@ -10,14 +10,10 @@ public class RefactoringProposition {
     }
 
     public boolean isRequired() {
-        return moreThanHundredAffectedLinesOfCode() &&
+        return scope.affectedLinesOfCode() > 100 &&
                 averageNumberOfCommits() > 1 &&
                 scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - 84);
      }
-
-    private boolean moreThanHundredAffectedLinesOfCode() {
-        return scope.affectedLinesOfCode() > 100;
-    }
 
     private long averageNumberOfCommits() {
         long periodOfMakingChanges = scope.latestChangeEpochDay() - scope.firstChangeEpochDay();
