@@ -13,6 +13,15 @@ class CoverageService {
     public boolean is(String coverageId, String operation, long value) {
         Coverage coverage = repository.findBy(coverageId);
 
-        return coverage.is(operation, value);
+        switch (operation) {
+            case "higher":
+                return coverage.isHigherThan(value);
+            case "equal":
+                return coverage.isEqualTo(value);
+            case "lower":
+                return coverage.isLowerThan(value);
+        }
+
+        throw new IllegalArgumentException("Unsupported condition given: " + operation);
     }
 }

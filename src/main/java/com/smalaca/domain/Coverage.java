@@ -3,16 +3,15 @@ package com.smalaca.domain;
 public class Coverage {
     private long coverage;
 
-    public boolean is(String conditionToCheck, long value) {
-        switch (conditionToCheck) {
-            case "higher":
-                return coverage > value;
-            case "equal":
-                return coverage == value;
-            case "lower":
-                return coverage < value;
-        }
+    public boolean isHigherThan(long value) {
+        return coverage > value;
+    }
 
-        throw new IllegalArgumentException("Unsupported condition given: " + conditionToCheck);
+    public boolean isEqualTo(long value) {
+        return coverage == value;
+    }
+
+    public boolean isLowerThan(long value) {
+        return coverage < value;
     }
 }
