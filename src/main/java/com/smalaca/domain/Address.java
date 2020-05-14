@@ -1,6 +1,6 @@
 package com.smalaca.domain;
 
-public class Address {
+class Address {
     private final String street;
     private final String postalCode;
     private final String city;
@@ -13,19 +13,19 @@ public class Address {
         this.country = country;
     }
 
-    public String getStreet() {
+    String getStreet() {
         return street;
     }
 
-    public String getPostalCode() {
+    String getPostalCode() {
         return postalCode;
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
-    public String getCountry() {
+    String getCountry() {
         return country;
     }
 }

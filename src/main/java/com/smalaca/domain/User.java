@@ -1,5 +1,7 @@
 package com.smalaca.domain;
 
+import com.smalaca.dto.AddressDto;
+
 public class User {
     private final String login;
     private final String role;
@@ -31,7 +33,13 @@ public class User {
         return eMail;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressDto getAddressDto() {
+        AddressDto addressDto = new AddressDto();
+        addressDto.setStreet(address.getStreet());
+        addressDto.setPostalCode(address.getPostalCode());
+        addressDto.setCity(address.getCity());
+        addressDto.setCountry(address.getCountry());
+
+        return addressDto;
     }
 }
