@@ -19,15 +19,8 @@ public class PullRequestApplicationService {
             Branch branch = branchRepository.find(branchId);
             PullRequest pullRequest = pullRequestRepository.find(pullRequestId);
 
-            int merge = pullRequestService.merge(branch, pullRequest);
-
-            if (merge == 1) {
-                return Response.success();
-            } else if (merge == -1) {
-                return Response.failure();
-            } else {
-                return Response.failure();
-            }
+            pullRequestService.merge(branch, pullRequest);
+            return Response.success();
         } catch (RuntimeException exception) {
             return Response.failure();
         }
