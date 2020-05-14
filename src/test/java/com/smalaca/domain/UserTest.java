@@ -18,9 +18,9 @@ class UserTest {
 
         admin.changeAddress(street, postalCode, city, country);
 
-        Assertions.assertThat(admin.getCity()).isEqualTo(city);
-        Assertions.assertThat(admin.getCountry()).isEqualTo(country);
-        Assertions.assertThat(admin.getStreet()).isEqualTo(street);
-        Assertions.assertThat(admin.getPostalCode()).isEqualTo(postalCode);
+        Assertions.assertThat(admin.getAddress().getCity()).isEqualTo(city);
+        Assertions.assertThat(admin.getAddress().getCountry()).isEqualTo(country);
+        Assertions.assertThat(admin.getAddress().getStreet()).isEqualTo(street);
+        Assertions.assertThat(admin.getAddress().getPostalCode()).isEqualTo(postalCode);
     }
 }

@@ -27,23 +27,11 @@ public class User {
         this.address = new Address(street, postalCode, city, country);
     }
 
-    public String getStreet() {
-        return address.getStreet();
-    }
-
-    public String getPostalCode() {
-        return address.getPostalCode();
-    }
-
-    public String getCity() {
-        return address.getCity();
-    }
-
-    public String getCountry() {
-        return address.getCountry();
-    }
-
     public String geteMail() {
         return eMail;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 }

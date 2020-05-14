@@ -1,5 +1,6 @@
 package com.smalaca.services;
 
+import com.smalaca.domain.Address;
 import com.smalaca.domain.User;
 import com.smalaca.domain.UserRepository;
 import com.smalaca.dto.AddressDto;
@@ -35,10 +36,13 @@ class UserService {
     public AddressDto getUserAddress(String id) {
         User user = repository.findById(id);
         AddressDto addressDto = new AddressDto();
-        addressDto.setStreet(user.getStreet());
-        addressDto.setPostalCode(user.getPostalCode());
-        addressDto.setCity(user.getCity());
-        addressDto.setCountry(user.getCountry());
+
+        Address address = user.getAddress();
+        addressDto.setStreet(address.getStreet());
+        addressDto.setPostalCode(address.getPostalCode());
+        addressDto.setCity(address.getCity());
+        addressDto.setCountry(address.getCountry());
+
         return addressDto;
     }
 }
