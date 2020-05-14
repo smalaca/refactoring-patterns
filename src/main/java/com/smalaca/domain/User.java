@@ -3,7 +3,7 @@ package com.smalaca.domain;
 public class User {
     private final String login;
     private final String role;
-    private EMail eMail;
+    private String eMail;
     private Address address;
 
     private User(String login, String role) {
@@ -41,5 +41,9 @@ public class User {
 
     public String getCountry() {
         return address.getCountry();
+    }
+
+    public String geteMail() {
+        return eMail;
     }
 }
