@@ -17,7 +17,7 @@ class PullRequestApplicationServiceTest {
 
     private final BranchRepository branchRepository = mock(BranchRepository.class);
     private final PullRequestRepository pullRequestRepository = mock(PullRequestRepository.class);
-    private final PullRequestApplicationService service = new PullRequestApplicationService(branchRepository, pullRequestRepository, new PullRequestService());
+    private final PullRequestApplicationService service = new PullRequestApplicationService(branchRepository, pullRequestRepository);
 
     @Test
     void shouldReturnSuccessWhenMergeSucceed() {
