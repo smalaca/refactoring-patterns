@@ -18,10 +18,15 @@ public class ChangeScope {
     }
 
     public int affectedLinesOfCode() {
-        int linesOfCode = finalCode.stream().mapToInt(CodeClass::linesOfCode).sum();
-        linesOfCode -= initialCode.stream().mapToInt(CodeClass::linesOfCode).sum();
+        return linesOfCodeAfterChange() - linesOfCodeBeforeChange();
+    }
 
-        return linesOfCode;
+    private int linesOfCodeBeforeChange() {
+        return initialCode.stream().mapToInt(CodeClass::linesOfCode).sum();
+    }
+
+    private int linesOfCodeAfterChange() {
+        return finalCode.stream().mapToInt(CodeClass::linesOfCode).sum();
     }
 
     public int numberOfCommits() {
