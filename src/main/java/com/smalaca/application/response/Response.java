@@ -14,4 +14,9 @@ public class Response {
     public static Response success() {
         return new Response(true);
     }
+
+    @Deprecated //only for testing purpose
+    public boolean isSuccess() {
+        return isSuccess;
+    }
 }
