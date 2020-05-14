@@ -26,10 +26,7 @@ public class MailNotificationSender implements NotificationSender{
     }
 
     private LocalDate getDelayedNotificationDate(Date mergeDate, int daysDelay) {
-        int dayOfMonth = mergeDate.getDay() + daysDelay;
-        int month = mergeDate.getMonth();
-        int year = mergeDate.getYear();
-        return LocalDate.of(year, month, dayOfMonth);
+        return new DelayedNotificationDate(mergeDate, daysDelay).asLocalDate();
     }
 
     private void send(PullRequest pullRequest, String login, LocalDate delayed) {
