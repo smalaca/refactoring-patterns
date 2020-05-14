@@ -13,14 +13,14 @@ public class PullRequestApplicationService {
     }
 
     public Response merge(String branchId, String pullRequestId) {
-        try {
-            Branch branch = branchRepository.find(branchId);
-            PullRequest pullRequest = pullRequestRepository.find(pullRequestId);
-            branch.merge(pullRequest);
+        Branch branch = branchRepository.find(branchId);
+        PullRequest pullRequest = pullRequestRepository.find(pullRequestId);
 
+        if (branch.isMergePossibleWith(pullRequest)) {
+            branch.merge(pullRequest);
             return Response.success();
-        } catch (RuntimeException exception) {
-            return Response.failure();
         }
+
+        return Response.failure();
     }
 }
