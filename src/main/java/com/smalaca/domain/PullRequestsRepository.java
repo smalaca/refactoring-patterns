@@ -7,15 +7,15 @@ public class PullRequestsRepository {
         this.pullRequestRepository = pullRequestRepository;
     }
 
-    public PullRequest findFix(String id) {
-        return pullRequestRepository.find(id);
+    public Fix findFix(String id) {
+        return (Fix) pullRequestRepository.find(id);
     }
 
-    public PullRequest findChangeRequest(String id) {
-        return pullRequestRepository.find(id);
+    public ChangeRequest findChangeRequest(String id) {
+        return (ChangeRequest) pullRequestRepository.find(id);
     }
 
-    public PullRequest findImprovement(String id) {
-        return pullRequestRepository.find(id);
+    public Improvement findImprovement(String id) {
+        return (Improvement) pullRequestRepository.find(id);
     }
 }
