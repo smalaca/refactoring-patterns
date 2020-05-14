@@ -12,9 +12,10 @@ class HistoryClient {
     }
 
     public void store(Author author, ChangeScope scope, CodeBaseDelta codeBaseDelta, Justification justification, LocalDate date) {
+        CodeChange codeChange = new CodeChange(author, scope, codeBaseDelta, justification, date);
         // some instructions
 
-        history.store(author, scope, codeBaseDelta, justification, date);
+        history.store(codeChange);
         // more instructions
     }
 }
