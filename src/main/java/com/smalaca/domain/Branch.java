@@ -19,10 +19,6 @@ public class Branch {
         }
     }
 
-    public boolean isMergePossibleWith(PullRequest pullRequest) {
-        return pullRequest.isPossibleToMergeTo(this);
-    }
-
     public List<Commit> getCommits() {
         return commits;
     }

@@ -16,7 +16,7 @@ public class PullRequestApplicationService {
         Branch branch = branchRepository.find(branchId);
         PullRequest pullRequest = pullRequestRepository.find(pullRequestId);
 
-        if (branch.isMergePossibleWith(pullRequest)) {
+        if (pullRequest.isPossibleToMergeTo(branch)) {
             branch.merge(pullRequest);
             return Response.success();
         }
