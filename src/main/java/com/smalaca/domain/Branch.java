@@ -12,11 +12,7 @@ public class Branch {
     }
 
     public void merge(PullRequest pullRequest) {
-        if (pullRequest.isPossibleToMergeTo(this)) {
-            commits.addAll(pullRequest.getCommits());
-        } else {
-            throw new MergeException(this, pullRequest);
-        }
+        commits.addAll(pullRequest.getCommits());
     }
 
     public List<Commit> getCommits() {
