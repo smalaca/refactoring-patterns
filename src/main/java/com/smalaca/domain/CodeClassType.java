@@ -1,5 +1,5 @@
 package com.smalaca.domain;
 
 public enum CodeClassType {
-    ENUM, INTERFACE
+    ENUM, INTERFACE, CLASS
 }
