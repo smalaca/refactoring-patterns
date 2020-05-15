@@ -10,23 +10,23 @@ public class PullRequestService {
     }
 
     public int modifyFix(String id, CommitAmend amend) {
-        Fix fix = pullRequestsRepository.findFix(id);
-
-        fix.amend(amend);
+        PullRequest pullRequest = pullRequestsRepository.findFix(id);
+        pullRequest.amend(amend);
 
         return 1;
     }
 
     public int modifyImprovement(String id, CommitAmend amend) {
-        Improvement improvement = pullRequestsRepository.findImprovement(id);
-        improvement.amend(amend);
+        PullRequest pullRequest = pullRequestsRepository.findImprovement(id);
+        pullRequest.amend(amend);
+
         return 1;
     }
 
     public int modifyChangeRequest(String id, CommitAmend amend) {
-        ChangeRequest changeRequest = pullRequestsRepository.findChangeRequest(id);
+        PullRequest pullRequest = pullRequestsRepository.findChangeRequest(id);
+        pullRequest.amend(amend);
 
-        changeRequest.amend(amend);
         return 1;
     }
 }
