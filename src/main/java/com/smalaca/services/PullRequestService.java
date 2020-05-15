@@ -12,14 +12,14 @@ public class PullRequestService {
     public int modifyFix(String id, CommitAmend amend) {
         Fix fix = pullRequestsRepository.findFix(id);
 
-        fix.modify(amend);
+        fix.amend(amend);
 
         return 1;
     }
 
     public int modifyImprovement(String id, CommitAmend amend) {
         Improvement improvement = pullRequestsRepository.findImprovement(id);
-        improvement.alterWith(amend);
+        improvement.amend(amend);
         return 1;
     }
 

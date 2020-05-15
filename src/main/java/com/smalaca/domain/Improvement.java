@@ -7,7 +7,7 @@ public class Improvement extends PullRequest {
         super(author, name, commits);
     }
 
-    public void alterWith(CommitAmend amend) {
+    public void amend(CommitAmend amend) {
         getCommits().stream().filter(commit -> commit.hasSameHashCodeAs(amend)).findFirst().get().getCodeBaseDelta().change(amend.getCodeBaseDelta());
     }
 }
