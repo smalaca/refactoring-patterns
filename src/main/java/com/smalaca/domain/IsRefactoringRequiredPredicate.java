@@ -3,16 +3,10 @@ package com.smalaca.domain;
 public class IsRefactoringRequiredPredicate {
 
     public boolean check(ChangeScope scope, CodeBase codeBase) {
-        if (!hasNotEnoughAffectedLinesOfCode(scope)) {
-            if (!hasNotEnoughAverageCommitsPerMonth(scope)) {
-                return isLatestCommitNotOlderThanThreeMonths(scope, codeBase);
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-
+        return
+                !hasNotEnoughAffectedLinesOfCode(scope) &&
+                !hasNotEnoughAverageCommitsPerMonth(scope) &&
+                isLatestCommitNotOlderThanThreeMonths(scope, codeBase);
     }
 
     private boolean isLatestCommitNotOlderThanThreeMonths(ChangeScope scope, CodeBase codeBase) {
