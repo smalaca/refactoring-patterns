@@ -16,7 +16,11 @@ public class RefactoringProposition {
     public boolean isRequired() {
         return scope.affectedLinesOfCode() > 100 &&
                 averageNumberOfCommits() > MINIMAL_COMMITS_NUMBER &&
-                scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - THREE_MONTHS);
+                isLatestCommitNotOlderThanThreeMonths();
+    }
+
+    private boolean isLatestCommitNotOlderThanThreeMonths() {
+        return scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - THREE_MONTHS);
     }
 
     private long averageNumberOfCommits() {
