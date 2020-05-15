@@ -11,11 +11,7 @@ public class IsRefactoringRequiredPredicate {
             return false;
         }
 
-        if (isLatestCommitNotOlderThanThreeMonths(scope, codeBase)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isLatestCommitNotOlderThanThreeMonths(scope, codeBase);
     }
 
     private boolean isLatestCommitNotOlderThanThreeMonths(ChangeScope scope, CodeBase codeBase) {
