@@ -18,14 +18,18 @@ public class BranchApplicationService {
         Branch from = branchRepository.find(fromId);
         Branch to = branchRepository.find(toId);
 
+        String message;
+
         if (to.canBeRebasedWith(from)) {
             to.rebaseWith(from);
             branchRepository.save(to);
-            notificationSender.notify("Successfully rebased", login);
-            return Response.success();
+
+            message = "Successfully rebased";
         } else {
-            notificationSender.notify("Couldn't rebase", login);
-            return Response.success();
+            message = "Couldn't rebase";
         }
+
+        notificationSender.notify(message, login);
+        return Response.success();
     }
 }
