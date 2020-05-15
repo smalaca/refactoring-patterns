@@ -9,7 +9,7 @@ public class Commit {
     private final LocalDate creationDate;
     private final Author author;
     private final CodeBaseDelta codeBaseDelta;
-    private final String[] message;
+    private final String[] messageArray;
     private final List<Branch> branches = new ArrayList<>();
 
     public Commit(String hashCode, LocalDate creationDate, Author author, CodeBaseDelta codeBaseDelta, String[] message) {
@@ -17,7 +17,7 @@ public class Commit {
         this.creationDate = creationDate;
         this.author = author;
         this.codeBaseDelta = codeBaseDelta;
-        this.message = message;
+        this.messageArray = message;
     }
 
     public long creationEpochDay() {
@@ -33,7 +33,7 @@ public class Commit {
     }
 
     public String message() {
-        return message[0] + " - " + message[1];
+        return messageArray[0] + " - " + messageArray[1];
     }
 
     boolean hasSameHashCodeAs(CommitAmend amend) {
