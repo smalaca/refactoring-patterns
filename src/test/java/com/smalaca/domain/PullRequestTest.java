@@ -17,7 +17,7 @@ class PullRequestTest {
         Author author = mock(Author.class);
         String name = UUID.randomUUID().toString();
 
-        PullRequest pullRequest = new Fix(author, name, new ArrayList<>());
+        PullRequest pullRequest = new PullRequest(author, name, new ArrayList<>());
 
         assertThat(pullRequest.getCommits()).isEmpty();
     }
@@ -26,7 +26,7 @@ class PullRequestTest {
     void shouldReturnCommitsWhenCommitAdded() {
         Author author = mock(Author.class);
         String name = UUID.randomUUID().toString();
-        PullRequest pullRequest = new Fix(author, name, new ArrayList<>());
+        PullRequest pullRequest = new PullRequest(author, name, new ArrayList<>());
         Commit commit = mock(Commit.class);
 
         pullRequest.add(commit);
@@ -42,7 +42,7 @@ class PullRequestTest {
         Commit commit2 = mock(Commit.class);
         List<Commit> commits = new ArrayList<>(asList(commit1, commit2));
 
-        PullRequest pullRequest = new Fix(author, name, commits);
+        PullRequest pullRequest = new PullRequest(author, name, commits);
 
         assertThat(pullRequest.getCommits()).containsExactly(commit1, commit2);
     }
@@ -53,7 +53,7 @@ class PullRequestTest {
         String name = UUID.randomUUID().toString();
         Commit commit1 = mock(Commit.class);
         Commit commit2 = mock(Commit.class);
-        PullRequest pullRequest = new Fix(author, name, new ArrayList<>(asList(commit1, commit2)));
+        PullRequest pullRequest = new PullRequest(author, name, new ArrayList<>(asList(commit1, commit2)));
         Commit commit3 = mock(Commit.class);
         Commit commit4 = mock(Commit.class);
 

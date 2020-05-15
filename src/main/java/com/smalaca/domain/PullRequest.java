@@ -6,7 +6,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-abstract public class PullRequest {
+public class PullRequest {
     private static final String DEVELOPER = "developer";
     private static final String TECH_LEAD = "technical leader";
 
@@ -77,5 +77,13 @@ abstract public class PullRequest {
         return mergeDate;
     }
 
-    abstract public void amend(CommitAmend amend);
+    public void amend(CommitAmend amend) {
+        for (Commit commit : getCommits()) {
+            if (commit.hasSameHashCodeAs(amend)) {
+                CodeBaseDelta codeBaseDelta = commit.getCodeBaseDelta();
+                CodeBaseDelta newCodeBaseDelta = amend.getCodeBaseDelta();
+                codeBaseDelta.change(newCodeBaseDelta);
+            }
+        }
+    }
 }
