@@ -12,7 +12,7 @@ abstract public class PullRequest {
 
     private final Author author;
     private final String name;
-    private final List<Commit> commits;
+    private final List<Commit> commitsList;
     private final LocalDate creationDate;
     private Date mergeDate;
     private List<Build> builds;
@@ -22,16 +22,16 @@ abstract public class PullRequest {
     public PullRequest(Author author, String name, List<Commit> commits) {
         this.author = author;
         this.name = name;
-        this.commits = commits;
+        this.commitsList = commits;
         creationDate = LocalDate.now();
     }
 
     public void add(Commit commit) {
-        commits.add(commit);
+        commitsList.add(commit);
     }
 
     public List<Commit> getCommits() {
-        return commits;
+        return commitsList;
     }
 
     public void addReview(String who, Reviewer reviewer) {
