@@ -5,14 +5,11 @@ import com.smalaca.domain.ClassMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InterfaceFile {
-    private final String name;
-    private final PackageName packageName;
+public class InterfaceFile extends CodeFile {
     private final List<ClassMethod> methods = new ArrayList<>();
 
     public InterfaceFile(String name, PackageName packageName) {
-        this.name = name;
-        this.packageName = packageName;
+        super(name, packageName);
     }
 
     public void addMethod(ClassMethod method) {
