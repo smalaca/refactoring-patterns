@@ -1,10 +1,10 @@
 package com.smalaca.domain;
 
-class Message {
+public class Message {
     private final String taskNumber;
     private final String description;
 
-    Message(String taskNumber, String description) {
+    public Message(String taskNumber, String description) {
         this.taskNumber = taskNumber;
         this.description = description;
     }

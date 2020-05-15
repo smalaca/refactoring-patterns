@@ -17,7 +17,7 @@ class CommitTest {
         CodeBaseDelta codeBaseDelta = mock(CodeBaseDelta.class);
         String[] message = new String[]{"number", "title"};
 
-        Commit commit = new Commit(hashCode, creationDate, author, codeBaseDelta, message);
+        Commit commit = new Commit(hashCode, creationDate, author, codeBaseDelta, new Message(message[0], message[1]));
 
         Assertions.assertThat(commit.message()).isEqualTo("number - title");
     }

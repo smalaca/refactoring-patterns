@@ -16,7 +16,7 @@ public class CommitService {
 
     public void create(Author author, CodeBaseDelta codeBaseDelta, LocalDate creationDate, String taskNumber, String description) {
         String hashCode = UUID.randomUUID().toString();
-        Commit commit = new Commit(hashCode, creationDate, author, codeBaseDelta, new String[]{taskNumber, description});
+        Commit commit = new Commit(hashCode, creationDate, author, codeBaseDelta, new Message(taskNumber, description));
 
         String login = commit.getAuthorLogin();
 

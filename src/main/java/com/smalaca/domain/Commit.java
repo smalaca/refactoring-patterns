@@ -12,11 +12,7 @@ public class Commit {
     private final List<Branch> branches = new ArrayList<>();
     private final Message message;
 
-    public Commit(String hashCode, LocalDate creationDate, Author author, CodeBaseDelta codeBaseDelta, String[] message) {
-        this(hashCode, creationDate, author, codeBaseDelta, new Message(message[0], message[1]));
-    }
-
-    private Commit(String hashCode, LocalDate creationDate, Author author, CodeBaseDelta codeBaseDelta, Message message) {
+    public Commit(String hashCode, LocalDate creationDate, Author author, CodeBaseDelta codeBaseDelta, Message message) {
         this.hashCode = hashCode;
         this.creationDate = creationDate;
         this.author = author;
