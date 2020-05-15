@@ -3,15 +3,18 @@ package com.smalaca.domain;
 import java.util.List;
 
 public class CodeClass {
+    private static final CodeClass NO_PARENT = new EmptyCodeClass();
+
     private final List<ClassAttribute> attributes;
     private final List<ClassMethod> methods;
     private final CodeClassType type;
-    private CodeClass parent;
+    private final CodeClass parent;
 
     public CodeClass(List<ClassAttribute> attributes, List<ClassMethod> methods, CodeClassType type) {
         this.attributes = attributes;
         this.methods = methods;
         this.type = type;
+        this.parent = NO_PARENT;
     }
 
     public CodeClass(List<ClassAttribute> attributes, List<ClassMethod> methods, CodeClassType type, CodeClass parent) {
@@ -34,18 +37,11 @@ public class CodeClass {
     }
 
     private int linesOfClassCode() {
-        if (parent != null) {
-            int linesOfCode = parent.linesOfCode();
-            int amountOfAttributes = attributes.size();
-            int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+        int linesOfCode = parent.linesOfCode();
+        int amountOfAttributes = attributes.size();
+        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
 
-            return linesOfCode + amountOfAttributes + methodsLength;
-        } else {
-            int amountOfAttributes = attributes.size();
-            int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
-
-            return amountOfAttributes + methodsLength;
-        }
+        return linesOfCode + amountOfAttributes + methodsLength;
     }
 
     private int linesOfEnumCode() {
