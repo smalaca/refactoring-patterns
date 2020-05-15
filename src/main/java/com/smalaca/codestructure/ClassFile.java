@@ -9,7 +9,6 @@ import java.util.List;
 
 public class ClassFile extends CodeFile {
     private final List<ClassAttribute> attributes = new ArrayList<>();
-    private final List<ClassMethod> methods = new ArrayList<>();
     private CodeClass parent;
 
     public ClassFile(String name, PackageName packageName) {
@@ -20,10 +19,6 @@ public class ClassFile extends CodeFile {
         attributes.add(attribute);
     }
 
-    public void addMethod(ClassMethod method) {
-        methods.add(method);
-    }
-
     public int linesOfCode() {
         int linesOfCode = 0;
         if (parent != null) {
@@ -31,7 +26,7 @@ public class ClassFile extends CodeFile {
         }
 
         int amountOfAttributes = attributes.size();
-        int methodsLength = methods.stream().mapToInt(ClassMethod::bodySize).sum();
+        int methodsLength = getMethods().stream().mapToInt(ClassMethod::bodySize).sum();
 
         return linesOfCode + amountOfAttributes + methodsLength;
     }
