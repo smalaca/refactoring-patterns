@@ -76,4 +76,6 @@ abstract public class PullRequest {
     public Date getMergeDate() {
         return mergeDate;
     }
+
+    abstract public void amend(CommitAmend amend);
 }
