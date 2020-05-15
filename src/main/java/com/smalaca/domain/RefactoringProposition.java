@@ -1,6 +1,9 @@
 package com.smalaca.domain;
 
 public class RefactoringProposition {
+    private static final int ONE_MONTH = 28;
+    private static final int THREE_MONTHS = 84;
+
     private final ChangeScope scope;
     private final CodeBase codeBase;
 
@@ -12,12 +15,12 @@ public class RefactoringProposition {
     public boolean isRequired() {
         return scope.affectedLinesOfCode() > 100 &&
                 averageNumberOfCommits() > 1 &&
-                scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - 84);
-     }
+                scope.latestChangeEpochDay() > (codeBase.latestChangeEpochDay() - THREE_MONTHS);
+    }
 
     private long averageNumberOfCommits() {
         long periodOfMakingChanges = scope.latestChangeEpochDay() - scope.firstChangeEpochDay();
-        long numberOfMonths = periodOfMakingChanges / 28;
+        long numberOfMonths = periodOfMakingChanges / ONE_MONTH;
 
         return scope.numberOfCommits() / numberOfMonths;
     }
