@@ -20,6 +20,6 @@ public class RefactoringProposition {
     }
 
     private long averageNumberOfCommits() {
-        return scope.numberOfCommits() / (scope.latestChangeEpochDay() - scope.firstChangeEpochDay() / 28);
+        return scope.numberOfCommits() / ((scope.latestChangeEpochDay() - scope.firstChangeEpochDay()) / 28);
     }
 }

@@ -7,7 +7,7 @@ public class IsRefactoringRequiredPredicate {
             return false;
         }
 
-        if (scope.numberOfCommits() / (scope.latestChangeEpochDay() - scope.firstChangeEpochDay() / 28) < 2) {
+        if (scope.numberOfCommits() / ((scope.latestChangeEpochDay() - scope.firstChangeEpochDay()) / 28) < 2) {
             return false;
         }
 
