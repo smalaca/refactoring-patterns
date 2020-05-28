@@ -7,7 +7,7 @@ public class User {
     private String postalCode;
     private String city;
     private String country;
-    private EMail eMail;
+    private MailAddress mailAddress;
 
     public User(String login, String role) {
         this.login = login;

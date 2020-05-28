@@ -21,4 +21,20 @@ public class AddressDto {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 }
